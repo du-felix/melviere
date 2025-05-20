@@ -24,8 +24,27 @@
       display: block;
     }
   {%- endif -%}
-{%- endstyle -%}
 
+  .color-{{ section.settings.color_scheme }} .newsletter-form__button.field__button {
+    background-color: var(--color-button-background);
+    color: var(--color-button-text);
+    border: none;
+    border-radius: 0.25rem;
+    padding: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+  }
+
+  .color-{{ section.settings.color_scheme }} .newsletter-form__button.field__button:hover {
+    opacity: 0.9;
+  }
+
+  .newsletter-form__button .svg-wrapper svg {
+    fill: var(--color-button-text);
+  }
+{%- endstyle -%}
 <div
   id="Banner-{{ section.id }}"
   class="email-signup-banner banner banner--content-align-{{ section.settings.desktop_content_alignment }} banner--content-align-mobile-{{ section.settings.mobile_content_alignment }} banner--{{ section.settings.image_height }}{% if section.settings.image_height == 'adapt-image' and section.settings.image != blank %} banner--adapt{% endif %}{% if section.settings.show_text_below %} banner--mobile-bottom{%- endif -%}{% if section.settings.show_text_box == false %} banner--desktop-transparent{% endif %}"
